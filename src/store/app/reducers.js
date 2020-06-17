@@ -6,6 +6,7 @@ import { types } from './actions'
 import { loadState } from '../localStorage'
 
 const persistedState = loadState();
+<<<<<<< HEAD
 const getInitialState = () => ({
   fetching: false,
   fetched: false,
@@ -20,6 +21,8 @@ import { loadState } from '../localStorage'
 const persistedState = loadState();
 console.log(persistedState)
 >>>>>>> a076f22... add data persistence through local storage
+=======
+>>>>>>> 888f616... merge with develop
 const getInitialState = () => ({
   fetching: false,
   fetched: false,
@@ -44,7 +47,10 @@ const getInitialState = () => ({
 const app = (state = getInitialState(), action) => {
   switch(action.type) {
     case types.ACTIVE_REPO:
+<<<<<<< HEAD
       console.log(action)
+=======
+>>>>>>> 888f616... merge with develop
       return {
         ...state,
 <<<<<<< HEAD
@@ -75,6 +81,7 @@ const app = (state = getInitialState(), action) => {
         fetching: false,
         error: action.error
       };
+<<<<<<< HEAD
     case types.NO_DATA_RECIEVED:
       return {
         ...state,
@@ -82,6 +89,9 @@ const app = (state = getInitialState(), action) => {
       }
     case types.RECIEVE_DATA:
       console.log(action)
+=======
+    case types.RECIEVE_DATA:
+>>>>>>> 888f616... merge with develop
       if (action.sourceType === 'issues') {
         return {
           ...state,

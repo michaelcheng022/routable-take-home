@@ -6,8 +6,12 @@ export const types = {
   FETCH_DATA_ERROR: 'FETCH_DATA_ERROR',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   RECIEVE_DATA: 'RECIEVE_DATA',
   NO_DATA_RECIEVED: 'NO_DATA_RECEIVED',
+=======
+  RECIEVE_DATA: 'RECIEVE_DATA',
+>>>>>>> 888f616... merge with develop
   SET_ISSUE_PRIORITY: 'SET_ISSUE_PRIORITY'
 =======
   RECIEVE_DATA: 'RECIEVE_DATA'
@@ -20,6 +24,7 @@ export const types = {
 
 // action creators
 export const creators = {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -39,6 +44,8 @@ export const creators = {
   //   url
   // }),
 >>>>>>> 403d5bd... add prioritize issues functionality
+=======
+>>>>>>> 888f616... merge with develop
   fetchDataStart: () => ({
     type: types.FETCH_DATA_START
   }),
@@ -72,6 +79,7 @@ export const getIssues = (url) => async dispatch => {
   try {
     const issues = await fetchData(url)
     dispatch(creators.recieveData(issues, "issues"))
+<<<<<<< HEAD
   } catch(err) {
     dispatch(creators.fetchDataError(err))
     throw err
@@ -132,6 +140,8 @@ export const getIssues = (url) => async dispatch => {
     } else {
       dispatch(creators.recieveData(issues, "issues"))
     }
+=======
+>>>>>>> 888f616... merge with develop
   } catch(err) {
     dispatch(creators.fetchDataError(err))
     throw err

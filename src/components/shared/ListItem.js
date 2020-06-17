@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 <<<<<<< HEAD
 
 const ListItem = ({ active, card, item, itemsLen, index, onClick, sourceType }) => {
+<<<<<<< HEAD
   const classes = `
     ${sourceType === 'issues' ? 'issues-list-item' : 'list-item '}
     ${active && sourceType !== "issues" ? 'active' : ''}
@@ -26,6 +27,8 @@ const ListItem = ({ active, card, item, itemsLen, index, onClick, sourceType }) 
   if (sourceType === 'issues') {
     console.log('ISSUE: ', item)
   }
+=======
+>>>>>>> 888f616... merge with develop
   const classes = `
     ${sourceType === 'issues' ? 'issues-list-item' : 'list-item '}
     ${active && sourceType !== "issues" ? 'active' : ''}

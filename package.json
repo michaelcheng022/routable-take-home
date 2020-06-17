@@ -12,10 +12,12 @@
     "react-dom": "16.8",
     "react-redux": "^7.1.3",
     "react-scripts": "3.4.1",
-<<<<<<< HEAD
     "react-test-renderer": "16.8",
+<<<<<<< HEAD
 =======
 >>>>>>> ff37e53... config redux store && refactor list components
+=======
+>>>>>>> 888f616... merge with develop
     "redux-thunk": "^2.3.0"
   },
   "scripts": {

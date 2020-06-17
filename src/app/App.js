@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import Repos from 'components/Repos/Repos'
 import Issues from 'components/Issues/Issues'
 import 'styles/styles.scss'
@@ -14,6 +13,7 @@ const App = () => {
 }
 
 export default App
+<<<<<<< HEAD
 =======
 import Repos from 'components/Repos'
 import Issues from 'components/Issues'
@@ -37,3 +37,5 @@ export default App;
 export default App
 // export default connect(mapStateToProps)(App)
 >>>>>>> 7e9c1a9... configure styles for components
+=======
+>>>>>>> 888f616... merge with develop
