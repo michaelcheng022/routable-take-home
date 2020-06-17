@@ -18,9 +18,9 @@ import { dispatch } from 'rxjs/internal/observable/pairs'
 
 const ListItem = (props) => {
   const { sourceType, item  } = props
-  const fromIssues = sourceType !== 'repos'
 
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <div className="repos" onClick={() => onClick}>
@@ -34,6 +34,10 @@ const ListItem = (props) => {
     <div className="repos" onClick={() => props.onClick(item)}>
       {fromIssues ? props.card(item): item.name}
 >>>>>>> 2c4dbb3... add styles to issue card
+=======
+    <div className="list-item" onClick={() => props.onClick(item)}>
+      {props.card(item)}
+>>>>>>> 7e9c1a9... configure styles for components
    </div>
   )
 }

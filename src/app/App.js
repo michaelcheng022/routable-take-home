@@ -17,18 +17,23 @@ export default App
 =======
 import Repos from 'components/Repos'
 import Issues from 'components/Issues'
-import './App.css';
 import 'styles/styles.scss'
 
 function App() {
+  // const { active } = store.getState()
   return (
     <div className="App">
-      {'hello world'}
      <Repos />
      <Issues />
     </div>
   );
 }
 
+<<<<<<< HEAD
 export default App;
 >>>>>>> ff37e53... config redux store && refactor list components
+=======
+
+export default App
+// export default connect(mapStateToProps)(App)
+>>>>>>> 7e9c1a9... configure styles for components

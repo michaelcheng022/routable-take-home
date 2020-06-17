@@ -3,6 +3,7 @@
 .App {
   text-align: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
   background: #F5F5F5;
   display: flex;
   padding: 10% 5%;
@@ -12,6 +13,11 @@
   background: #F5F5F5;
   display: flex;
 >>>>>>> 2c4dbb3... add styles to issue card
+=======
+  background: #F5F5F5;
+  display: flex;
+  justify-content: center;
+>>>>>>> 7e9c1a9... configure styles for components
 }
 
 .flex-container {
@@ -74,4 +80,14 @@
 .flex-container:hover {
   background: $highlighted
 }
+<<<<<<< HEAD
 >>>>>>> 2c4dbb3... add styles to issue card
+=======
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: $off-black 2px solid;
+}
+>>>>>>> 7e9c1a9... configure styles for components
