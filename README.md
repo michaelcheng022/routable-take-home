@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+=======
+## Bonus Question **
+
+Describe a hypothetical backend API for persistent custom order of issues:
+
+For the backend we could use a simple Node/Express server with Mongoose and MongoDB serving as the database. I would define a Mongoose schema for issues that would map issues to the repo id, in which I would store in an object. Everytime the order of issues is changed in the frontend I'll send a POST request to send array and repo id and store that specific item with the custom order. If the order changes again within the same session I'll use a PUT or PATCH request to udpate array order. One thing to note is we should limit the number of reqeusts sent when to the server when user is switching order really quickly. I'd simply use a debounce to wait for the user to stop clicking and then make a request to update/send custom order of issues to DB.
+
+The next step would simply to be connect the frontend and the backend. Then I would point my frontend to the port defined in my backend and set the views in my backend to be pointing to frontend. When user loads app with repository instead of making a new request to GitHubAPI I'll check if my active repository id exists inside my DB I'll just make a request in which the response will be the custom order issues that are stored with the associated id with a GET request.
+>>>>>>> ad8234f... Update README.md
 
 ## Available Scripts
 
