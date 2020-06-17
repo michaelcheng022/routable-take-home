@@ -80,16 +80,20 @@ const List = props => {
   },[issuesUrl])
 
   const handleClick = (item) => {
-
     setActive(item)
-    props.setActiveRepo(active)
+    if (sourceType === 'repos') {
+      props.setActiveRepo(item)
+    }
+
   }
+
   return (
     <div className="item-list">
       {items?.length && items.map((item) => {
         // console.log(item)
       return (
         <ListItem
+          card={props.card}
           key={item.id}
           onClick={handleClick}
           item={item}

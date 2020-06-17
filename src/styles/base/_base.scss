@@ -2,10 +2,16 @@
 
 .App {
   text-align: center;
+<<<<<<< HEAD
   background: #F5F5F5;
   display: flex;
   padding: 10% 5%;
   justify-content: center;
+=======
+  margin: 10% 5%;
+  background: #F5F5F5;
+  display: flex;
+>>>>>>> 2c4dbb3... add styles to issue card
 }
 
 .flex-container {
@@ -17,6 +23,7 @@
 .flex-item {
   padding: 10px;
   text-align: left;
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,3 +66,12 @@
   }
 }
 
+=======
+  justify-content: center;
+  align-content: space-around;
+}
+
+.flex-container:hover {
+  background: $highlighted
+}
+>>>>>>> 2c4dbb3... add styles to issue card

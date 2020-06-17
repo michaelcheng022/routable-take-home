@@ -17,13 +17,11 @@ const ListItem = ({ active, card, item, itemsLen, index, onClick, sourceType }) 
 import { dispatch } from 'rxjs/internal/observable/pairs'
 
 const ListItem = (props) => {
-  const { sourceType, item, setActive  } = props
-  // console.log(sourceType)
+  const { sourceType, item  } = props
   const fromIssues = sourceType !== 'repos'
-  const onClick = () => {
-   return props.onClick(item)
-  }
+
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
     <div className="repos" onClick={() => onClick}>
       {item.name}
@@ -32,6 +30,10 @@ const ListItem = (props) => {
     <div className="repos" onClick={onClick}>
       {fromIssues ? item.title : item.name}
 >>>>>>> 1c9b691... move to containers && update redux store state
+=======
+    <div className="repos" onClick={() => props.onClick(item)}>
+      {fromIssues ? props.card(item): item.name}
+>>>>>>> 2c4dbb3... add styles to issue card
    </div>
   )
 }
