@@ -1,5 +1,6 @@
-export const  fromNow = (date) => {
-  let seconds = Math.floor((new Date() - date) / 1000);
+export const fromNow = (date) => {
+  const formatted = new Date(date)
+  let seconds = Math.floor((new Date() - formatted) / 1000);
   let years = Math.floor(seconds / 31536000);
   let months = Math.floor(seconds / 2592000);
   let days = Math.floor(seconds / 86400);
@@ -43,4 +44,10 @@ export const  fromNow = (date) => {
   if (seconds >= 0 && seconds <= 45) {
     return 'a few seconds ago';
   }
+}
+
+export const monthDayYear = (date) => {
+  const formatted = new Date(date)
+
+  return `${formatted.getMonth()}/${formatted.getDay()}/${formatted.getFullYear()}`
 }
