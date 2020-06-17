@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 import React, { useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+import React from 'react'
+>>>>>>> e1bb720... clean up code
 
 const ListItem = ({ active, card, item, itemsLen, index, onClick, sourceType }) => {
 <<<<<<< HEAD

@@ -144,11 +144,12 @@ const app = (state = getInitialState(), action) => {
         hits: action.data,
       };
     case types.SET_ISSUE_PRIORITY:
-      const {index, newIndex, priorityChanged } = action;
+      const {index, newIndex } = action;
       const issues = [...state.issues]
       let temp = issues[index]
       issues[index] = issues[newIndex]
       issues[newIndex] = temp
+
       return {
         ...state,
         issues,

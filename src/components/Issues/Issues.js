@@ -8,8 +8,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { getIssues, creators } from 'store/app/actions'
 
-const URL = `https://api.github.com/user/repos`
-
 const Issues = (props) => {
   const { issuesUrl } = props
 
@@ -49,6 +47,15 @@ const Issues = (props) => {
     : null }
     </>
   )
+}
+
+Issues.propTypes = {
+  active: PropTypes.object,
+  issues: PropTypes.array,
+  issuesUrl: PropTypes.string,
+  fetching: PropTypes.bool,
+  getIssues: PropTypes.func,
+  setIssuePriority: PropTypes.func
 }
 
 const mapDispatchToProps = dispatch => {

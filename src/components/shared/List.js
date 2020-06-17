@@ -120,7 +120,7 @@ List.propTypes = {
 <<<<<<< HEAD
   active: PropTypes.object,
   fetching: PropTypes.bool,
-  items: PropTypes.object,
+  items: PropTypes.array,
   sourceType: PropTypes.string,
   setActiveRepo: PropTypes.func
 }
