@@ -16,6 +16,7 @@ const App = () => {
 export default App
 =======
 import Repos from 'components/Repos'
+import Issues from 'components/Issues'
 import './App.css';
 import 'styles/styles.scss'
 function App() {
@@ -23,6 +24,7 @@ function App() {
     <div className="App">
       {'hello world'}
      <Repos />
+     <Issues />
     </div>
   );
 }

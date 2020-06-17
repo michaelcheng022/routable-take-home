@@ -1,3 +1,4 @@
+
 // action types
 export const types = {
   ACTIVE_REPO: 'ACTIVE_REPO',
@@ -18,7 +19,8 @@ export const creators = {
 =======
   setActiveRepo: (active) => ({
     type: types.ACTIVE_REPO,
-    active
+    active,
+    issuesUrl: active?.url ? `${active.url}/issues` : ''
   }),
   fetchFrom: (url) => ({
     type: types.FETCH_FROM,
@@ -95,7 +97,7 @@ const fetchData = async (url) => {
 }
 
 // fetch data and dispatch depending on source (issues || repos)
-export const fetchData = (url, type) => {
+export const fetchData = (url, srcType) => {
   return dispatch => {
     dispatch(creators.fetchDataStart())
     dispatch(creators.fetchFrom(url))
@@ -108,7 +110,8 @@ export const fetchData = (url, type) => {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        return dispatch(creators.recieveData(data, type))
+        console.log(srcType)
+        return dispatch(creators.recieveData(data, srcType))
       })
       .catch((err) => {
         dispatch(creators.fetchDataError(err))
@@ -116,5 +119,16 @@ export const fetchData = (url, type) => {
   };
 }
 >>>>>>> ff37e53... config redux store && refactor list components
+
+export const fetchActive = (active, url, srcType) => {
+  return dispatch => {
+    console.log('hello')
+    console.log(active, url, srcType)
+    dispatch(creators.setActiveRepo(active))
+
+    return dispatch(fetchData(url, srcType))
+
+  }
+}
 
 
