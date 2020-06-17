@@ -1,6 +1,7 @@
 
 
 import { types } from './actions'
+<<<<<<< HEAD
 import { loadState } from '../localStorage'
 
 const persistedState = loadState();
@@ -11,6 +12,16 @@ const getInitialState = () => ({
   hits: persistedState?.hits || [],
   issues: persistedState?.issues || [],
   active: persistedState?.active || null,
+=======
+const getInitialState = () => ({
+  url: '',
+  fetching: false,
+  fetched: false,
+  error: null,
+  hits: [],
+  active: {},
+  issues: []
+>>>>>>> ff37e53... config redux store && refactor list components
 });
 
 const app = (state = getInitialState(), action) => {
@@ -18,8 +29,12 @@ const app = (state = getInitialState(), action) => {
     case types.ACTIVE_REPO:
       return {
         ...state,
+<<<<<<< HEAD
         active: action.active,
         issuesUrl: action.issuesUrl
+=======
+        active: action.active
+>>>>>>> ff37e53... config redux store && refactor list components
       }
     case types.FETCH_DATA_START:
       return {
@@ -43,14 +58,22 @@ const app = (state = getInitialState(), action) => {
           ...state,
           fetching: false,
           fetched: true,
+<<<<<<< HEAD
           noData: false,
           issues: action.data,
         };
       }
+=======
+          issues: action.hits,
+        };
+      }
+
+>>>>>>> ff37e53... config redux store && refactor list components
       return {
         ...state,
         fetching: false,
         fetched: true,
+<<<<<<< HEAD
         hits: action.data,
       };
     case types.SET_ISSUE_PRIORITY:
@@ -63,6 +86,10 @@ const app = (state = getInitialState(), action) => {
         ...state,
         issues,
       }
+=======
+        hits: action.hits,
+      };
+>>>>>>> ff37e53... config redux store && refactor list components
     default:
       return state;
   }

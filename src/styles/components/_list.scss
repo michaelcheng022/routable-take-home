@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 
 @import '../base/global';
+=======
+.active {
+  background: rgb(207, 207, 207) !important;
+}
+>>>>>>> ff37e53... config redux store && refactor list components
 
 .list {
   display: flex;
   flex-direction: column;
 }
 
+<<<<<<< HEAD
 .list-item {
   display: flex;
   background-color: $white;
@@ -53,3 +60,12 @@
     min-width: 300px;
   }
 }
+=======
+// .list-item {
+
+// }
+
+// .repos {
+
+// }
+>>>>>>> ff37e53... config redux store && refactor list components

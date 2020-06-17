@@ -1,5 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+<<<<<<< HEAD
+=======
+import './index.css';
+import App from './app/App';
+import configureStore from './store/index';
+>>>>>>> ff37e53... config redux store && refactor list components
 import { Provider } from 'react-redux';
 import App from './app/App';
 import configureStore from 'store/index';
@@ -18,6 +24,8 @@ store.subscribe(throttle(() => {
   });
 }, 1000)
 );
+
+const store = configureStore()
 
 ReactDOM.render(
   <React.StrictMode>
