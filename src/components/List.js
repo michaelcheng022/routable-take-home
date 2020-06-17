@@ -8,13 +8,18 @@ const TEST_URL = 'https://api.github.com/repositories?since=364'
 const styles = {
   listItem: {
     display: 'flex',
-    margin: 2
+    margin: 10,
+    borderBottom: 'solid 2px black'
+  },
+  listStyles: {
+    display: 'flex',
+    flexDirection: 'column'
   }
 }
 
 const ListItem = ({ item }) => {
   return (
-    <div styles={styles.listItem}>
+    <div style={styles.listItem}>
       {item.name}
    </div>
   )
@@ -36,7 +41,7 @@ const List = props => {
 
     },[])
   return (
-    <div style={{ display: 'flex', flexDirection: 'column'}}>
+    <div style={styles.listStyles}>
       {repos?.length && repos.map((repo, i) => {
         console.log(repo)
       return (
