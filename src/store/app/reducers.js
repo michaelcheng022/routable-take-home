@@ -7,16 +7,18 @@ const getInitialState = () => ({
   fetched: false,
   error: null,
   hits: [],
-  active: {},
+  active: null,
   issues: []
 });
 
 const app = (state = getInitialState(), action) => {
   switch(action.type) {
     case types.ACTIVE_REPO:
+      console.log(action)
       return {
         ...state,
-        active: action.active
+        active: action.active,
+        issuesUrl: action.issuesUrl
       }
     case types.FETCH_DATA_START:
       return {
@@ -35,6 +37,7 @@ const app = (state = getInitialState(), action) => {
         error: action.error
       };
     case types.RECIEVE_DATA:
+      console.log(action)
       if (action.sourceType === 'issues') {
         return {
           ...state,
