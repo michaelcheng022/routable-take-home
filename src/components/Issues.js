@@ -3,12 +3,14 @@ import React, { useState, useEffect} from 'react'
 import { bindActionCreators } from 'redux'
 import List from './shared/List'
 import Header from './shared/Header'
+import Loader from './shared/Loader'
 import IssueCard from './IssueCard'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { fetchData, fetchActive } from 'store/app/actions';
 
 const Issues = (props) => {
+  console.log(props)
   return (
     <>
      {!!props.active ?

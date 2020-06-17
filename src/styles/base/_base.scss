@@ -6,7 +6,11 @@
 <<<<<<< HEAD
   background: #F5F5F5;
   display: flex;
+<<<<<<< HEAD
   padding: 10% 5%;
+=======
+  margin: 10% 5%;
+>>>>>>> 1d1c2dd... added loader
   justify-content: center;
 =======
   margin: 10% 5%;
@@ -87,7 +91,7 @@
 .list-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-content: center;
   border: $off-black 2px solid;
 }
 >>>>>>> 7e9c1a9... configure styles for components
