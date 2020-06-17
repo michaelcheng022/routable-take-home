@@ -1,4 +1,3 @@
-
 // action types
 export const types = {
   ACTIVE_REPO: 'ACTIVE_REPO',
@@ -6,15 +5,21 @@ export const types = {
   FETCH_FROM: 'FETCH_FROM',
   FETCH_DATA_ERROR: 'FETCH_DATA_ERROR',
 <<<<<<< HEAD
+<<<<<<< HEAD
   RECIEVE_DATA: 'RECIEVE_DATA',
   SET_ISSUE_PRIORITY: 'SET_ISSUE_PRIORITY'
 =======
   RECIEVE_DATA: 'RECIEVE_DATA'
 >>>>>>> ff37e53... config redux store && refactor list components
+=======
+  RECIEVE_DATA: 'RECIEVE_DATA',
+  SET_ISSUE_PRIORITY: 'SET_ISSUE_PRIORITY'
+>>>>>>> 403d5bd... add prioritize issues functionality
 }
 
 // action creators
 export const creators = {
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   setActiveRepo: (active) => ({
@@ -27,6 +32,12 @@ export const creators = {
     url
   }),
 >>>>>>> ff37e53... config redux store && refactor list components
+=======
+  // fetchFrom: (url) => ({
+  //   type: types.FETCH_FROM,
+  //   url
+  // }),
+>>>>>>> 403d5bd... add prioritize issues functionality
   fetchDataStart: () => ({
     type: types.FETCH_DATA_START
   }),
@@ -36,6 +47,7 @@ export const creators = {
   }),
   recieveData: (data, sourceType) => ({
     type: types.RECIEVE_DATA,
+<<<<<<< HEAD
 <<<<<<< HEAD
     data,
     sourceType
@@ -92,43 +104,61 @@ const fetchData = async (url) => {
 };
 =======
     hits: data,
+=======
+    data,
+>>>>>>> 403d5bd... add prioritize issues functionality
     sourceType
+  }),
+  setActiveRepo: (active) => ({
+    type: types.ACTIVE_REPO,
+    active,
+    issuesUrl: active?.url ? `${active.url}/issues` : ''
+  }),
+  setIssuePriority: (index, newIndex) => ({
+    type: types.SET_ISSUE_PRIORITY,
+    index,
+    newIndex,
+    priorityChanged: true
   })
 }
 
-// fetch data and dispatch depending on source (issues || repos)
-export const fetchData = (url, srcType) => {
-  return dispatch => {
-    dispatch(creators.fetchDataStart())
-    dispatch(creators.fetchFrom(url))
-    return fetch(url, {
-      method: "GET",
-      headers: new Headers({
-        Accept: 'application/vnd.github.nebula-preview+json'
-      })
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        console.log(srcType)
-        return dispatch(creators.recieveData(data, srcType))
-      })
-      .catch((err) => {
-        dispatch(creators.fetchDataError(err))
-      })
-  };
+export const getIssues = (url) => async dispatch => {
+  dispatch(creators.fetchDataStart())
+  try {
+    const issues = await fetchData(url)
+    console.log(issues)
+    dispatch(creators.recieveData(issues, "issues"))
+  } catch(err) {
+    dispatch(creators.fetchDataError(err))
+    throw err
+  }
 }
 >>>>>>> ff37e53... config redux store && refactor list components
 
-export const fetchActive = (active, url, srcType) => {
-  return dispatch => {
-    console.log('hello')
-    console.log(active, url, srcType)
-    dispatch(creators.setActiveRepo(active))
-
-    return dispatch(fetchData(url, srcType))
-
+export const getRepos = (url) => async dispatch => {
+  dispatch(creators.fetchDataStart())
+  try {
+    const repos = await fetchData(url)
+    dispatch(creators.recieveData(repos))
+  } catch(err) {
+    dispatch(creators.fetchDataError(err))
+    throw err
   }
 }
+
+// fetch data helper
+const fetchData = async (url) => {
+  return await fetch(url, {
+    method: "GET",
+    headers: new Headers({
+      Accept: 'application/vnd.github.nebula-preview+json'
+    })
+  })
+    .then(response => response.json())
+    .then(data => data)
+    .catch((err) => {
+      console.log(err)
+    })
+};
 
 

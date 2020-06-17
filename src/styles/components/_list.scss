@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 @import '../base/global';
 =======
@@ -6,12 +7,16 @@
   background: rgb(207, 207, 207) !important;
 }
 >>>>>>> ff37e53... config redux store && refactor list components
+=======
+
+>>>>>>> 403d5bd... add prioritize issues functionality
 
 .list {
   display: flex;
   flex-direction: column;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 .list-item {
@@ -24,10 +29,19 @@
   background-color: #778899 !important;
   color: $white;
 }
+=======
+.list-item {
+  display: flex;
+  background-color: #fff;
+  border-bottom: solid 2px black;
+}
+
+>>>>>>> 403d5bd... add prioritize issues functionality
 
 .list-item:last-child {
   border: none;
 }
+<<<<<<< HEAD
 
 .repos-list {
   min-width: 350px;
@@ -65,6 +79,8 @@
 // .list-item {
 =======
 >>>>>>> 1d1c2dd... added loader
+=======
+>>>>>>> 403d5bd... add prioritize issues functionality
 
 .repos-list {
   min-width: 350px;
@@ -77,4 +93,12 @@
 .issues-list {
   min-width: 500px
 }
+<<<<<<< HEAD
 >>>>>>> 1d1c2dd... added loader
+=======
+.issues-list-item {
+  display: flex;
+  background-color: #fff;
+  border-bottom: solid 2px black;
+}
+>>>>>>> 403d5bd... add prioritize issues functionality

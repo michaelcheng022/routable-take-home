@@ -6,9 +6,20 @@ import Header from './shared/Header'
 import RepoCard from './RepoCard'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
-import { fetchData, creators } from 'store/app/actions';
+import { getRepos, creators } from 'store/app/actions';
+
+const URL = `https://api.github.com/user/repos`
+const TEST_URL = 'https://api.github.com/repositories?since=364'
 
 const Repos = (props) => {
+  useEffect(() => {
+    async function fetchRepos(url = TEST_URL) {
+      await props.getRepos(url)
+
+    }
+    fetchRepos(TEST_URL, 'repos')
+
+  },[])
   return (
     <div className="list-container">
       <Header>{"Repositories"}</Header>
@@ -17,6 +28,7 @@ const Repos = (props) => {
         fetchData={props.fetchData}
         setActiveRepo={props.setActiveRepo}
         sourceType="repos"
+        items={props.hits}
         card={(repo) => <RepoCard repo={repo} />}
       />
     </div>
@@ -24,7 +36,11 @@ const Repos = (props) => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ fetchData, setActiveRepo: creators.setActiveRepo }, dispatch)
+  return bindActionCreators(
+    {
+      getRepos,
+      setActiveRepo: creators.setActiveRepo
+    }, dispatch)
 }
 
 const mapStateToProps = state => {
@@ -32,7 +48,7 @@ const mapStateToProps = state => {
     url: state.app.url,
     hits: state.app.hits,
     active: state.app.active,
-    issues: state.app.issues
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Repos);

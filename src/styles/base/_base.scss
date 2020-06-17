@@ -7,10 +7,14 @@
   background: #F5F5F5;
   display: flex;
 <<<<<<< HEAD
+<<<<<<< HEAD
   padding: 10% 5%;
 =======
   margin: 10% 5%;
 >>>>>>> 1d1c2dd... added loader
+=======
+  padding: 10% 5%;
+>>>>>>> 403d5bd... add prioritize issues functionality
   justify-content: center;
 =======
   margin: 10% 5%;
@@ -33,6 +37,7 @@
 .flex-item {
   padding: 10px;
   text-align: left;
+<<<<<<< HEAD
 <<<<<<< HEAD
   display: flex;
   flex-direction: column;
@@ -77,8 +82,16 @@
 }
 
 =======
+=======
+  display: flex;
+  flex-direction: column;
+>>>>>>> 403d5bd... add prioritize issues functionality
   justify-content: center;
-  align-content: space-around;
+  align-content: center;
+}
+
+.flex-item h4 {
+  margin: 0;
 }
 
 .flex-container:hover {
@@ -94,4 +107,8 @@
   align-content: center;
   border: $off-black 2px solid;
 }
+<<<<<<< HEAD
 >>>>>>> 7e9c1a9... configure styles for components
+=======
+
+>>>>>>> 403d5bd... add prioritize issues functionality

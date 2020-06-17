@@ -19,9 +19,14 @@ const getInitialState = () => ({
   fetched: false,
   error: null,
   hits: [],
+  issues: [],
   active: null,
+<<<<<<< HEAD
   issues: []
 >>>>>>> ff37e53... config redux store && refactor list components
+=======
+  priorityChanged: false
+>>>>>>> 403d5bd... add prioritize issues functionality
 });
 
 const app = (state = getInitialState(), action) => {
@@ -66,6 +71,7 @@ const app = (state = getInitialState(), action) => {
           fetching: false,
           fetched: true,
 <<<<<<< HEAD
+<<<<<<< HEAD
           noData: false,
           issues: action.data,
         };
@@ -76,10 +82,16 @@ const app = (state = getInitialState(), action) => {
       }
 
 >>>>>>> ff37e53... config redux store && refactor list components
+=======
+          issues: action.data,
+        };
+      }
+>>>>>>> 403d5bd... add prioritize issues functionality
       return {
         ...state,
         fetching: false,
         fetched: true,
+<<<<<<< HEAD
 <<<<<<< HEAD
         hits: action.data,
       };
@@ -97,6 +109,21 @@ const app = (state = getInitialState(), action) => {
         hits: action.hits,
       };
 >>>>>>> ff37e53... config redux store && refactor list components
+=======
+        hits: action.data,
+      };
+    case types.SET_ISSUE_PRIORITY:
+      const {index, newIndex, priorityChanged } = action;
+      const issues = [...state.issues]
+      let temp = issues[index]
+      issues[index] = issues[newIndex]
+      issues[newIndex] = temp
+      return {
+        ...state,
+        issues,
+        priorityChanged
+      }
+>>>>>>> 403d5bd... add prioritize issues functionality
     default:
       return state;
   }

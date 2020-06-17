@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 const ListItem = ({ active, card, item, itemsLen, index, onClick, sourceType }) => {
   const classes = `
@@ -18,8 +19,15 @@ import { dispatch } from 'rxjs/internal/observable/pairs'
 
 const ListItem = (props) => {
   const { sourceType, item  } = props
+=======
+>>>>>>> 403d5bd... add prioritize issues functionality
 
+const ListItem = ({ sourceType, item, itemsLen, index, card, onClick }) => {
+  if (sourceType === 'issues') {
+    console.log('ISSUE: ', item)
+  }
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -38,6 +46,13 @@ const ListItem = (props) => {
     <div className="list-item" onClick={() => props.onClick(item)}>
       {props.card(item)}
 >>>>>>> 7e9c1a9... configure styles for components
+=======
+    <div
+      className={sourceType === 'issues' ? 'issues-list-item' : 'list-item'}
+      onClick={() => onClick(item)}
+    >
+      {card(item, index, itemsLen)}
+>>>>>>> 403d5bd... add prioritize issues functionality
    </div>
   )
 }
