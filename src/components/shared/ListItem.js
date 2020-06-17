@@ -22,10 +22,14 @@ const ListItem = (props) => {
 =======
 >>>>>>> 403d5bd... add prioritize issues functionality
 
-const ListItem = ({ sourceType, item, itemsLen, index, card, onClick }) => {
+const ListItem = ({ active, card, item, itemsLen, index, onClick, sourceType }) => {
   if (sourceType === 'issues') {
     console.log('ISSUE: ', item)
   }
+  const classes = `
+    ${sourceType === 'issues' ? 'issues-list-item' : 'list-item '}
+    ${active && sourceType !== "issues" ? 'active' : ''}
+  `
   return (
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -48,7 +52,7 @@ const ListItem = ({ sourceType, item, itemsLen, index, card, onClick }) => {
 >>>>>>> 7e9c1a9... configure styles for components
 =======
     <div
-      className={sourceType === 'issues' ? 'issues-list-item' : 'list-item'}
+      className={classes}
       onClick={() => onClick(item)}
     >
       {card(item, index, itemsLen)}

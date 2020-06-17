@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 
 @import '../base/global';
+<<<<<<< HEAD
 =======
 .active {
   background: rgb(207, 207, 207) !important;
@@ -10,6 +11,8 @@
 =======
 
 >>>>>>> 403d5bd... add prioritize issues functionality
+=======
+>>>>>>> a076f22... add data persistence through local storage
 
 .list {
   display: flex;
@@ -32,11 +35,18 @@
 =======
 .list-item {
   display: flex;
-  background-color: #fff;
+  background-color: $white;
   border-bottom: solid 2px black;
 }
 
+<<<<<<< HEAD
 >>>>>>> 403d5bd... add prioritize issues functionality
+=======
+.active {
+  background-color: #778899 !important;
+  color: $white;
+}
+>>>>>>> a076f22... add data persistence through local storage
 
 .list-item:last-child {
   border: none;
@@ -98,7 +108,7 @@
 =======
 .issues-list-item {
   display: flex;
-  background-color: #fff;
+  background-color: $white;
   border-bottom: solid 2px black;
 }
 >>>>>>> 403d5bd... add prioritize issues functionality

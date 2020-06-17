@@ -2,6 +2,7 @@
 
 import { types } from './actions'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { loadState } from '../localStorage'
 
 const persistedState = loadState();
@@ -13,11 +14,17 @@ const getInitialState = () => ({
   issues: persistedState?.issues || [],
   active: persistedState?.active || null,
 =======
+=======
+import { loadState } from '../localStorage'
+
+const persistedState = loadState();
+console.log(persistedState)
+>>>>>>> a076f22... add data persistence through local storage
 const getInitialState = () => ({
-  url: '',
   fetching: false,
   fetched: false,
   error: null,
+<<<<<<< HEAD
   hits: [],
   issues: [],
   active: null,
@@ -27,6 +34,11 @@ const getInitialState = () => ({
 =======
   priorityChanged: false
 >>>>>>> 403d5bd... add prioritize issues functionality
+=======
+  hits: persistedState?.hits || [],
+  issues: persistedState?.issues || [],
+  active: persistedState?.active || null,
+>>>>>>> a076f22... add data persistence through local storage
 });
 
 const app = (state = getInitialState(), action) => {
@@ -63,6 +75,11 @@ const app = (state = getInitialState(), action) => {
         fetching: false,
         error: action.error
       };
+    case types.NO_DATA_RECIEVED:
+      return {
+        ...state,
+        noData: true
+      }
     case types.RECIEVE_DATA:
       console.log(action)
       if (action.sourceType === 'issues') {
@@ -70,6 +87,7 @@ const app = (state = getInitialState(), action) => {
           ...state,
           fetching: false,
           fetched: true,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           noData: false,
@@ -83,6 +101,9 @@ const app = (state = getInitialState(), action) => {
 
 >>>>>>> ff37e53... config redux store && refactor list components
 =======
+=======
+          noData: false,
+>>>>>>> a076f22... add data persistence through local storage
           issues: action.data,
         };
       }
@@ -121,7 +142,6 @@ const app = (state = getInitialState(), action) => {
       return {
         ...state,
         issues,
-        priorityChanged
       }
 >>>>>>> 403d5bd... add prioritize issues functionality
     default:

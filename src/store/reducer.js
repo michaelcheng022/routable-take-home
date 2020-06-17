@@ -3,6 +3,7 @@ import app from './app/reducers';
 
 const rootReducer = combineReducers({
 <<<<<<< HEAD
+<<<<<<< HEAD
   app
 });
 
@@ -13,3 +14,9 @@ export default rootReducer;
 
 export default rootReducer; 
 >>>>>>> ff37e53... config redux store && refactor list components
+=======
+  app
+});
+
+export default rootReducer;
+>>>>>>> a076f22... add data persistence through local storage

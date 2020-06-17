@@ -56,7 +56,7 @@ import PropTypes from 'prop-types'
 
 const List = props => {
 
-  const { sourceType, items } = props
+  const { sourceType, items, card, noData } = props
   const [active, setActive] = useState(props.active)
 
   const handleClick = (item) => {
@@ -74,6 +74,7 @@ const List = props => {
   return (
     <div className={ sourceType === 'repos' ? 'repos-list' : 'issues-list'}>
       {items?.length > 0 ? items.map((item, index) => {
+<<<<<<< HEAD
       return (
         <ListItem
           card={props.card}
@@ -95,6 +96,22 @@ const List = props => {
 =======
       }) : <div className="loader-container"><Loader /></div>}
 >>>>>>> 403d5bd... add prioritize issues functionality
+=======
+
+        return (
+          <ListItem
+            active={active.id === item.id}
+            card={card}
+            key={item.id}
+            onClick={handleClick}
+            item={item}
+            index={index}
+            itemsLen={items.length}
+            sourceType={sourceType}
+          />
+        )
+        }) : <div className="loader-container"><Loader /></div>}
+>>>>>>> a076f22... add data persistence through local storage
     </div>
   )
 }
