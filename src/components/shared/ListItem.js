@@ -4,11 +4,10 @@ import { dispatch } from 'rxjs/internal/observable/pairs'
 
 const ListItem = (props) => {
   const { sourceType, item  } = props
-  const fromIssues = sourceType !== 'repos'
 
   return (
-    <div className="repos" onClick={() => props.onClick(item)}>
-      {fromIssues ? props.card(item): item.name}
+    <div className="list-item" onClick={() => props.onClick(item)}>
+      {props.card(item)}
    </div>
   )
 }
