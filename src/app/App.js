@@ -1,12 +1,12 @@
 import React from 'react';
-import List from 'components/List'
+import Repos from 'components/Repos'
 import './App.css';
-
+import 'styles/styles.scss'
 function App() {
   return (
     <div className="App">
       {'hello world'}
-      <List />
+     <Repos />
     </div>
   );
 }
