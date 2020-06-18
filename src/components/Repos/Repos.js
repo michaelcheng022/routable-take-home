@@ -12,7 +12,7 @@ import { getRepos, creators } from 'store/app/actions';
 import logo from 'assets/GitHub-Mark-Light-64px.png'
 
 const URL = `https://api.github.com/user/repos`
-// test with endpoint that has repos that contains issues
+// test URL  that has repos that contains issues
 const TEST_URL = 'https://api.github.com/repositories?since=364'
 
 const Repos = (props) => {
@@ -21,6 +21,9 @@ const Repos = (props) => {
 
   const onSubmit = async (e) => {
     e.preventDefault()
+    // normally I would make sure token that is stored is hashed before i do
+    localStorage.setItem('token', token)
+
     async function fetchRepos(url = TEST_URL) {
       await props.getRepos(url, token)
     }

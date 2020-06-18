@@ -10,10 +10,10 @@ import { getIssues, creators } from 'store/app/actions'
 
 const Issues = (props) => {
   const { issuesUrl } = props
-
+  const token = localStorage.getItem('token')
   useEffect(() => {
     async function fetchIssues(url) {
-       await props.getIssues(url)
+       await props.getIssues(url, token)
     }
     if (issuesUrl) {
      fetchIssues(issuesUrl)

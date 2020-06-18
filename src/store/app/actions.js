@@ -36,10 +36,10 @@ export const creators = {
 }
 
 // create separate actions for issues and repos
-export const getIssues = (url) => async dispatch => {
+export const getIssues = (url, token) => async dispatch => {
   dispatch(creators.fetchDataStart())
   try {
-    const issues = await fetchData(url)
+    const issues = await fetchData(url, token)
     dispatch(creators.recieveData(issues, "issues"))
   } catch(err) {
     dispatch(creators.fetchDataError(err))
