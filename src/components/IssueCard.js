@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { fromNow, monthDayYear } from 'utils/utils'
+import { fromNow, monthDayYear } from 'utils/formatDate'
 
 const IssueCard = ({ issue, setIssuePriority, index, issuesLen }) => {
   const lower = index + 1
