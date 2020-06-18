@@ -1,0 +1,33 @@
+@import './global';
+
+.App {
+  text-align: center;
+  background: #F5F5F5;
+  display: flex;
+  margin: 10% 5%;
+  justify-content: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.flex-item {
+  padding: 10px;
+  text-align: left;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.flex-container:hover {
+  background: $highlighted
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  border: $off-black 2px solid;
+}

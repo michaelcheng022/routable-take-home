@@ -3,15 +3,11 @@ import PropTypes from 'prop-types'
 import { dispatch } from 'rxjs/internal/observable/pairs'
 
 const ListItem = (props) => {
-  const { sourceType, item, setActive  } = props
-  // console.log(sourceType)
-  const fromIssues = sourceType !== 'repos'
-  const onClick = () => {
-   return props.onClick(item)
-  }
+  const { sourceType, item  } = props
+
   return (
-    <div className="repos" onClick={onClick}>
-      {fromIssues ? item.title : item.name}
+    <div className="list-item" onClick={() => props.onClick(item)}>
+      {props.card(item)}
    </div>
   )
 }
