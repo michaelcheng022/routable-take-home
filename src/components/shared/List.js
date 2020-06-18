@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react'
+import Loader from './Loader'
 import ListItem from './ListItem'
 import PropTypes from 'prop-types'
 
@@ -38,9 +39,9 @@ const List = props => {
   }
 
   return (
-    <div className="item-list">
-      {items?.length && items.map((item) => {
-        // console.log(item)
+    <div className={ sourceType === 'repos' ? 'repos-list' : 'issues-list'}>
+      {items.length > 0 ? items.map((item) => {
+
       return (
         <ListItem
           card={props.card}
@@ -50,7 +51,7 @@ const List = props => {
           sourceType={props.sourceType}
         />
       )
-      })}
+      }) : <Loader />}
     </div>
   )
 }
