@@ -19,6 +19,21 @@ store.subscribe(throttle(() => {
 }, 1000)
 );
 
+import './index.css';
+
+
+
+const store = configureStore()
+
+store.subscribe(throttle(() => {
+  saveState({
+    active: store.getState().app.active,
+    issues: store.getState().app.issues,
+    hits: store.getState().app.hits
+  });
+}, 1000)
+);
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
