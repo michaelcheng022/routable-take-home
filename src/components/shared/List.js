@@ -2,7 +2,7 @@ import React, { useState, propTypes} from 'react'
 import Loader from './Loader'
 import ListItem from './ListItem'
 import PropTypes from 'prop-types'
-
+import {ReactComponent as IssueLogo} from '../../issue-opened.svg';
 const List = (props) => {
   const [active, setActive] = useState(props.active)
   const {
@@ -25,7 +25,10 @@ const List = (props) => {
     : `There aren't any open issues.`
   const showLoader = fetching
     ? <div className="loader-container"><Loader /></div>
-    : <div><h3>{emptyDataMsg}</h3></div>
+    : <div style={{ marginTop: 20 }}>
+        <IssueLogo />
+        <h3>{emptyDataMsg}</h3>
+      </div>
 
   return (
     <div className={ sourceType === 'repos' ? 'repos-list' : 'issues-list'}>

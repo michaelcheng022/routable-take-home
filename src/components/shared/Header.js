@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 const Header = (props) => {
   return (
     <div className="header-container">
+      {props?.icon}
       <h1 className="header">
         {props.children}
       </h1>
