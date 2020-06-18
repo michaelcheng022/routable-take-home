@@ -4,7 +4,10 @@ import { types } from './actions'
 import { loadState } from '../localStorage'
 
 const persistedState = loadState();
+<<<<<<< HEAD
+=======
 console.log(persistedState)
+>>>>>>> origin/develop
 const getInitialState = () => ({
   fetching: false,
   fetched: false,
@@ -17,7 +20,10 @@ const getInitialState = () => ({
 const app = (state = getInitialState(), action) => {
   switch(action.type) {
     case types.ACTIVE_REPO:
+<<<<<<< HEAD
+=======
       console.log(action)
+>>>>>>> origin/develop
       return {
         ...state,
         active: action.active,
@@ -39,6 +45,9 @@ const app = (state = getInitialState(), action) => {
         fetching: false,
         error: action.error
       };
+<<<<<<< HEAD
+    case types.RECIEVE_DATA:
+=======
     case types.NO_DATA_RECIEVED:
       return {
         ...state,
@@ -46,6 +55,7 @@ const app = (state = getInitialState(), action) => {
       }
     case types.RECIEVE_DATA:
       console.log(action)
+>>>>>>> origin/develop
       if (action.sourceType === 'issues') {
         return {
           ...state,

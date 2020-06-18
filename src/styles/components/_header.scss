@@ -2,9 +2,28 @@
 
 .header-container {
   background-color: $off-black;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+=======
+>>>>>>> origin/develop
 }
 
 .header {
   font-family: sans-serif;
   color: #fff
 }
+<<<<<<< HEAD
+@media (max-width: $screen-lg-min) {
+  .header{
+    font-size: 25px;
+  }
+}
+
+@media (max-width: $screen-md-min) {
+  .header{
+    font-size: 16px;
+  }
+}
+=======
+>>>>>>> origin/develop
