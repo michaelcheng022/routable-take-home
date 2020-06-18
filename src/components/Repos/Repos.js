@@ -41,6 +41,14 @@ const Repos = (props) => {
   )
 }
 
+Repos.propTypes = {
+  active: PropTypes.object,
+  fetching: PropTypes.bool,
+  hits: PropTypes.array,
+  getRepos: PropTypes.func,
+  setActiveRepo: PropTypes.func
+}
+
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
@@ -51,9 +59,9 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    hits: state.app.hits,
     active: state.app.active,
     fetching: state.app.fetching,
+    hits: state.app.hits
   };
 };
 

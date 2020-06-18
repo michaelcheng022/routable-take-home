@@ -53,7 +53,7 @@ const List = (props) => {
 List.propTypes = {
   active: PropTypes.object,
   fetching: PropTypes.bool,
-  items: PropTypes.object,
+  items: PropTypes.array,
   sourceType: PropTypes.string,
   setActiveRepo: PropTypes.func
 }
