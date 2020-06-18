@@ -7,8 +7,9 @@ const getInitialState = () => ({
   fetched: false,
   error: null,
   hits: [],
+  issues: [],
   active: null,
-  issues: []
+  priorityChanged: false
 });
 
 const app = (state = getInitialState(), action) => {
@@ -43,16 +44,26 @@ const app = (state = getInitialState(), action) => {
           ...state,
           fetching: false,
           fetched: true,
-          issues: action.hits,
+          issues: action.data,
         };
       }
-
       return {
         ...state,
         fetching: false,
         fetched: true,
-        hits: action.hits,
+        hits: action.data,
       };
+    case types.SET_ISSUE_PRIORITY:
+      const {index, newIndex, priorityChanged } = action;
+      const issues = [...state.issues]
+      let temp = issues[index]
+      issues[index] = issues[newIndex]
+      issues[newIndex] = temp
+      return {
+        ...state,
+        issues,
+        priorityChanged
+      }
     default:
       return state;
   }

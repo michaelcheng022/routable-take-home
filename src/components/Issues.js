@@ -7,10 +7,20 @@ import Loader from './shared/Loader'
 import IssueCard from './IssueCard'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
-import { fetchData, fetchActive } from 'store/app/actions';
+import { getIssues, creators } from 'store/app/actions'
+
+const URL = `https://api.github.com/user/repos`
 
 const Issues = (props) => {
   console.log(props)
+  const { issuesUrl } = props
+  console.log(issuesUrl)
+  useEffect(() => {
+    async function fetchIssues(url) {
+       await props.getIssues(url)
+    }
+    fetchIssues(issuesUrl)
+  },[issuesUrl])
   return (
     <>
      {!!props.active ?
@@ -19,12 +29,19 @@ const Issues = (props) => {
         <List
           active={props.active}
           fetchData={props.fetchData}
-          setActiveRepo={props.setActiveRepo}
-          issuesUrl={props.issuesUrl}
+          items={props.issues}
+          priorityChanged={props.priorityChanged}
           sourceType="issues"
-          card={(issue) => {
+          card={(issue, index, issuesLen) => {
             console.log(issue)
-            return(<IssueCard issue={issue} />)
+            return(
+              <IssueCard
+                setIssuePriority={props.setIssuePriority}
+                issue={issue}
+                index={index}
+                issuesLen={issuesLen}
+              />
+            )
           }}
         />
       </div>
@@ -34,16 +51,20 @@ const Issues = (props) => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ fetchData, fetchActive }, dispatch)
+  return bindActionCreators(
+    {
+      getIssues,
+      setIssuePriority: creators.setIssuePriority
+    }, dispatch)
 }
 
 const mapStateToProps = state => {
   return {
     url: state.app.url,
-    hits: state.app.hits,
     active: state.app.active,
     issues: state.app.issues,
-    issuesUrl: state.app.issuesUrl
+    issuesUrl: state.app.issuesUrl,
+    priorityChanged: state.app.priorityChanged
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Issues);

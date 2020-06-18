@@ -1,13 +1,16 @@
 import React, { useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
-import { dispatch } from 'rxjs/internal/observable/pairs'
 
-const ListItem = (props) => {
-  const { sourceType, item  } = props
-
+const ListItem = ({ sourceType, item, itemsLen, index, card, onClick }) => {
+  if (sourceType === 'issues') {
+    console.log('ISSUE: ', item)
+  }
   return (
-    <div className="list-item" onClick={() => props.onClick(item)}>
-      {props.card(item)}
+    <div
+      className={sourceType === 'issues' ? 'issues-list-item' : 'list-item'}
+      onClick={() => onClick(item)}
+    >
+      {card(item, index, itemsLen)}
    </div>
   )
 }

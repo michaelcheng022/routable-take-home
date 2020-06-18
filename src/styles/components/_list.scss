@@ -1,12 +1,20 @@
-.active {
-  background: rgb(207, 207, 207) !important;
-}
+
 
 .list {
   display: flex;
   flex-direction: column;
 }
 
+.list-item {
+  display: flex;
+  background-color: #fff;
+  border-bottom: solid 2px black;
+}
+
+
+.list-item:last-child {
+  border: none;
+}
 
 .repos-list {
   min-width: 350px;
@@ -14,4 +22,9 @@
 
 .issues-list {
   min-width: 500px
+}
+.issues-list-item {
+  display: flex;
+  background-color: #fff;
+  border-bottom: solid 2px black;
 }
