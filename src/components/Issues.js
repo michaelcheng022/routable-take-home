@@ -19,7 +19,10 @@ const Issues = (props) => {
     async function fetchIssues(url) {
        await props.getIssues(url)
     }
-    fetchIssues(issuesUrl)
+    if (issuesUrl) {
+     fetchIssues(issuesUrl)
+    }
+
   },[issuesUrl])
   return (
     <>
@@ -29,6 +32,7 @@ const Issues = (props) => {
         <List
           active={props.active}
           fetchData={props.fetchData}
+          noData={props.noData}
           items={props.issues}
           priorityChanged={props.priorityChanged}
           sourceType="issues"
@@ -60,11 +64,10 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    url: state.app.url,
     active: state.app.active,
     issues: state.app.issues,
     issuesUrl: state.app.issuesUrl,
-    priorityChanged: state.app.priorityChanged
+    noData: state.app.noData
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Issues);

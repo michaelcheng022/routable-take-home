@@ -5,6 +5,7 @@ export const types = {
   FETCH_FROM: 'FETCH_FROM',
   FETCH_DATA_ERROR: 'FETCH_DATA_ERROR',
   RECIEVE_DATA: 'RECIEVE_DATA',
+  NO_DATA_RECIEVED: 'NO_DATA_RECEIVED',
   SET_ISSUE_PRIORITY: 'SET_ISSUE_PRIORITY'
 }
 
@@ -43,8 +44,11 @@ export const getIssues = (url) => async dispatch => {
   dispatch(creators.fetchDataStart())
   try {
     const issues = await fetchData(url)
-    console.log(issues)
-    dispatch(creators.recieveData(issues, "issues"))
+    if(issues.length === 0) {
+      console.log('issues empty')
+    } else {
+      dispatch(creators.recieveData(issues, "issues"))
+    }
   } catch(err) {
     dispatch(creators.fetchDataError(err))
     throw err

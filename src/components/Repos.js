@@ -15,10 +15,11 @@ const Repos = (props) => {
   useEffect(() => {
     async function fetchRepos(url = TEST_URL) {
       await props.getRepos(url)
-
     }
-    fetchRepos(TEST_URL, 'repos')
 
+    if (!props.hits?.length) {
+      fetchRepos(TEST_URL, 'repos')
+    }
   },[])
   return (
     <div className="list-container">
