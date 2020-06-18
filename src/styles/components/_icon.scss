@@ -1,0 +1,19 @@
+@import '../base/global';
+
+.icon-container {
+  margin: auto 0;
+  position: relative;
+  right: 5%;
+}
+
+.icon-container > img {
+  height: 50px;
+  width: 50px;
+}
+
+@media (max-width: $screen-md-min) {
+  .icon-container > img{
+    height: 30px;
+    width: 30px;
+  }
+}

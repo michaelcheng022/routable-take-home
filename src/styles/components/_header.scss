@@ -2,6 +2,8 @@
 
 .header-container {
   background-color: $off-black;
+  display: flex;
+  justify-content: center;
 }
 
 .header {

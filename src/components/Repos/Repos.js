@@ -3,11 +3,12 @@ import React, { useState, useEffect} from 'react'
 import { bindActionCreators } from 'redux'
 import List from '../shared/List'
 import Header from '../shared/Header'
+import Icon from '../shared/Icon'
 import RepoCard from './RepoCard'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { getRepos, creators } from 'store/app/actions';
-import icon from '../../Octocat.jpg'
+import logo from '../../GitHub-Mark-Light-64px.png'
 
 const URL = `https://api.github.com/michaelcheng022/repos`
 // test with endpoint that has repos with issues
@@ -20,12 +21,12 @@ const Repos = (props) => {
     }
 
     if (!props.hits?.length) {
-      fetchRepos(URL, 'repos')
+      fetchRepos(TEST_URL, 'repos')
     }
   },[])
   return (
     <div className="list-container">
-      <Header>
+      <Header icon={<Icon src={logo} alt="Octokat"/>}>
         {"Repositories"}
       </Header>
       <List
