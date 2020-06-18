@@ -3,7 +3,7 @@ import React, { useState, propTypes} from 'react'
 import Loader from './Loader'
 import ListItem from './ListItem'
 import PropTypes from 'prop-types'
-import {ReactComponent as IssueLogo} from '../../issue-opened.svg';
+import {ReactComponent as IssueLogo} from 'assets/issue-opened.svg';
 const List = (props) => {
   const [active, setActive] = useState(props.active)
   const {
