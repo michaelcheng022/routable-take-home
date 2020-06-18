@@ -1,3 +1,4 @@
+// similar to fromNow from moment.js
 export const fromNow = (date) => {
   const formatted = new Date(date)
   let seconds = Math.floor((new Date() - formatted) / 1000);
@@ -46,6 +47,7 @@ export const fromNow = (date) => {
   }
 }
 
+// mm/dd/yyyy - account that JS uses 0 index for month
 export const monthDayYear = (date) => {
   const formatted = new Date(date)
   let year = formatted.getFullYear();
