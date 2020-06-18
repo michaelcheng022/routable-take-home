@@ -48,6 +48,9 @@ export const fromNow = (date) => {
 
 export const monthDayYear = (date) => {
   const formatted = new Date(date)
+  let year = formatted.getFullYear();
+  let month = (1 + formatted.getMonth()).toString().padStart(2, '0');
+  let day = formatted.getDate().toString().padStart(2, '0');
 
-  return `${formatted.getMonth()}/${formatted.getDay()}/${formatted.getFullYear()}`
+  return `${month}/${day}/${year}`
 }

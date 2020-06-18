@@ -1,18 +1,15 @@
 import React from 'react';
-import Repos from 'components/Repos'
-import Issues from 'components/Issues'
+import Repos from 'components/Repos/Repos'
+import Issues from 'components/Issues/Issues'
 import 'styles/styles.scss'
 
-function App() {
-  // const { active } = store.getState()
+const App = () => {
   return (
     <div className="App">
-     <Repos />
-     <Issues />
+      <Repos />
+      <Issues />
     </div>
-  );
+  )
 }
 
-
 export default App
-// export default connect(mapStateToProps)(App)

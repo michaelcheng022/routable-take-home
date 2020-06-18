@@ -1,9 +1,8 @@
 
 import React, { useState, useEffect} from 'react'
 import { bindActionCreators } from 'redux'
-import List from './shared/List'
-import Header from './shared/Header'
-import Loader from './shared/Loader'
+import List from '../shared/List'
+import Header from '../shared/Header'
 import IssueCard from './IssueCard'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
@@ -12,9 +11,8 @@ import { getIssues, creators } from 'store/app/actions'
 const URL = `https://api.github.com/user/repos`
 
 const Issues = (props) => {
-  console.log(props)
   const { issuesUrl } = props
-  console.log(issuesUrl)
+
   useEffect(() => {
     async function fetchIssues(url) {
        await props.getIssues(url)
@@ -22,8 +20,8 @@ const Issues = (props) => {
     if (issuesUrl) {
      fetchIssues(issuesUrl)
     }
-
   },[issuesUrl])
+
   return (
     <>
      {!!props.active ?
@@ -32,12 +30,11 @@ const Issues = (props) => {
         <List
           active={props.active}
           fetchData={props.fetchData}
-          noData={props.noData}
+          fetching={props.fetching}
           items={props.issues}
           priorityChanged={props.priorityChanged}
           sourceType="issues"
           card={(issue, index, issuesLen) => {
-            console.log(issue)
             return(
               <IssueCard
                 setIssuePriority={props.setIssuePriority}
@@ -67,7 +64,7 @@ const mapStateToProps = state => {
     active: state.app.active,
     issues: state.app.issues,
     issuesUrl: state.app.issuesUrl,
-    noData: state.app.noData
+    fetching: state.app.fetching,
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Issues);

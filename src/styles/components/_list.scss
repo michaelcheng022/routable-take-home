@@ -23,6 +23,7 @@
 
 .repos-list {
   min-width: 350px;
+  cursor: pointer;
 }
 
 .issues-list {
@@ -32,4 +33,23 @@
   display: flex;
   background-color: $white;
   border-bottom: solid 2px black;
+}
+
+@media (max-width: $screen-lg-min) {
+  .repos-list {
+    min-width: 250px;
+  }
+
+  .issues-list {
+    min-width: 400px;
+  }
+}
+@media (max-width: $screen-md-min) {
+  .repos-list {
+    min-width: 180px;
+  }
+
+  .issues-list {
+    min-width: 300px;
+  }
 }

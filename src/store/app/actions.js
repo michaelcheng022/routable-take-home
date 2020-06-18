@@ -5,16 +5,11 @@ export const types = {
   FETCH_FROM: 'FETCH_FROM',
   FETCH_DATA_ERROR: 'FETCH_DATA_ERROR',
   RECIEVE_DATA: 'RECIEVE_DATA',
-  NO_DATA_RECIEVED: 'NO_DATA_RECEIVED',
   SET_ISSUE_PRIORITY: 'SET_ISSUE_PRIORITY'
 }
 
 // action creators
 export const creators = {
-  // fetchFrom: (url) => ({
-  //   type: types.FETCH_FROM,
-  //   url
-  // }),
   fetchDataStart: () => ({
     type: types.FETCH_DATA_START
   }),
@@ -40,15 +35,12 @@ export const creators = {
   })
 }
 
+// create separate actions for issues and repos
 export const getIssues = (url) => async dispatch => {
   dispatch(creators.fetchDataStart())
   try {
     const issues = await fetchData(url)
-    if(issues.length === 0) {
-      console.log('issues empty')
-    } else {
-      dispatch(creators.recieveData(issues, "issues"))
-    }
+    dispatch(creators.recieveData(issues, "issues"))
   } catch(err) {
     dispatch(creators.fetchDataError(err))
     throw err

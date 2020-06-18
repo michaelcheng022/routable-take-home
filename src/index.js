@@ -6,10 +6,7 @@ import configureStore from 'store/index';
 import { throttle } from 'utils/throttle'
 import { saveState } from 'store/localStorage'
 import * as serviceWorker from './serviceWorker';
-
 import './index.css';
-
-
 
 const store = configureStore()
 

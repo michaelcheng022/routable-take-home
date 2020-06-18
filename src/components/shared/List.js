@@ -1,33 +1,38 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, propTypes} from 'react'
 import Loader from './Loader'
 import ListItem from './ListItem'
 import PropTypes from 'prop-types'
 
-
-const List = props => {
-
-  const { sourceType, items, card, noData } = props
+const List = (props) => {
   const [active, setActive] = useState(props.active)
+  const {
+    card,
+    fetching,
+    items,
+    sourceType,
+    setActiveRepo
+  } = props
 
   const handleClick = (item) => {
     setActive(item)
     if (sourceType === 'repos') {
-      props.setActiveRepo(item)
+      setActiveRepo(item)
     }
   }
 
-  // const loader = () => {
-  //   setTimeout(() => {
+  const emptyDataMsg = sourceType === 'repos'
+    ? 'No repositories fetched.'
+    : `There aren't any open issues.`
+  const showLoader = fetching
+    ? <div className="loader-container"><Loader /></div>
+    : <div><h3>{emptyDataMsg}</h3></div>
 
-  //   })
-  // }
   return (
     <div className={ sourceType === 'repos' ? 'repos-list' : 'issues-list'}>
       {items?.length > 0 ? items.map((item, index) => {
-
         return (
           <ListItem
-            active={active.id === item.id}
+            active={active?.id === item?.id}
             card={card}
             key={item.id}
             onClick={handleClick}
@@ -37,13 +42,17 @@ const List = props => {
             sourceType={sourceType}
           />
         )
-        }) : <div className="loader-container"><Loader /></div>}
+        }) : showLoader}
     </div>
   )
 }
 
 List.propTypes = {
+  active: PropTypes.object,
+  fetching: PropTypes.bool,
+  items: PropTypes.object,
   sourceType: PropTypes.string,
+  setActiveRepo: PropTypes.func
 }
 
 export default List

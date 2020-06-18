@@ -1,9 +1,36 @@
-.issue {
-
-}
-
 .avatar {
   height: 40px;
   width: 40px;
 }
 
+.btn-disabled {
+  pointer-events: none;
+}
+
+.btn-priority {
+  background: none;
+  border: none;
+  font-size: 18px;
+}
+
+.btn-priority:focus {
+  outline: none;
+}
+
+.btn-up:hover {
+  color: #FF8b60;
+  cursor: pointer;
+}
+
+
+
+.btn-down:hover {
+  color: #90ee90;
+  cursor: pointer;
+}
+
+@media (max-width: $screen-lg-min) {
+  h4{
+    font-size: 14px;
+  }
+}
