@@ -4,7 +4,7 @@
   text-align: center;
   background: #F5F5F5;
   display: flex;
-  margin: 10% 5%;
+  padding: 10% 5%;
   justify-content: center;
 }
 
@@ -17,8 +17,14 @@
 .flex-item {
   padding: 10px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-content: space-around;
+  align-content: center;
+}
+
+.flex-item h4 {
+  margin: 0;
 }
 
 .flex-container:hover {
@@ -31,3 +37,4 @@
   align-content: center;
   border: $off-black 2px solid;
 }
+
