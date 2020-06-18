@@ -8,10 +8,10 @@ import RepoCard from './RepoCard'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { getRepos, creators } from 'store/app/actions';
-import logo from '../../GitHub-Mark-Light-64px.png'
+import logo from 'assets/GitHub-Mark-Light-64px.png'
 
 const URL = `https://api.github.com/michaelcheng022/repos`
-// test with endpoint that has repos with issues
+// test with endpoint that has repos that contains issues
 const TEST_URL = 'https://api.github.com/repositories?since=364'
 
 const Repos = (props) => {
