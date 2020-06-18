@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 const List = props => {
 
-  const { sourceType, items } = props
+  const { sourceType, items, card, noData } = props
   const [active, setActive] = useState(props.active)
 
   const handleClick = (item) => {
@@ -24,18 +24,20 @@ const List = props => {
   return (
     <div className={ sourceType === 'repos' ? 'repos-list' : 'issues-list'}>
       {items?.length > 0 ? items.map((item, index) => {
-      return (
-        <ListItem
-          card={props.card}
-          key={item.id}
-          onClick={handleClick}
-          item={item}
-          index={index}
-          itemsLen={items.length}
-          sourceType={props.sourceType}
-        />
-      )
-      }) : <div className="loader-container"><Loader /></div>}
+
+        return (
+          <ListItem
+            active={active.id === item.id}
+            card={card}
+            key={item.id}
+            onClick={handleClick}
+            item={item}
+            index={index}
+            itemsLen={items.length}
+            sourceType={sourceType}
+          />
+        )
+        }) : <div className="loader-container"><Loader /></div>}
     </div>
   )
 }
