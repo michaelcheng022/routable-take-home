@@ -1,15 +1,17 @@
 
 
 import { types } from './actions'
+import { loadState } from '../localStorage'
+
+const persistedState = loadState();
+console.log(persistedState)
 const getInitialState = () => ({
-  url: '',
   fetching: false,
   fetched: false,
   error: null,
-  hits: [],
-  issues: [],
-  active: null,
-  priorityChanged: false
+  hits: persistedState?.hits || [],
+  issues: persistedState?.issues || [],
+  active: persistedState?.active || null,
 });
 
 const app = (state = getInitialState(), action) => {
@@ -37,6 +39,11 @@ const app = (state = getInitialState(), action) => {
         fetching: false,
         error: action.error
       };
+    case types.NO_DATA_RECIEVED:
+      return {
+        ...state,
+        noData: true
+      }
     case types.RECIEVE_DATA:
       console.log(action)
       if (action.sourceType === 'issues') {
@@ -44,6 +51,7 @@ const app = (state = getInitialState(), action) => {
           ...state,
           fetching: false,
           fetched: true,
+          noData: false,
           issues: action.data,
         };
       }
@@ -62,7 +70,6 @@ const app = (state = getInitialState(), action) => {
       return {
         ...state,
         issues,
-        priorityChanged
       }
     default:
       return state;
