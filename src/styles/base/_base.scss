@@ -4,6 +4,7 @@
   text-align: center;
   background: #F5F5F5;
   display: flex;
+  margin: 10% 5%;
   justify-content: center;
 }
 
@@ -27,6 +28,6 @@
 .list-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-content: center;
   border: $off-black 2px solid;
 }
