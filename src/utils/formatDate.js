@@ -50,14 +50,9 @@ export const fromNow = (date) => {
 // mm/dd/yyyy - account that JS uses 0 index for month
 export const monthDayYear = (date) => {
   const formatted = new Date(date)
-<<<<<<< HEAD
   let year = formatted.getFullYear();
   let month = (1 + formatted.getMonth()).toString().padStart(2, '0');
   let day = formatted.getDate().toString().padStart(2, '0');
 
   return `${month}/${day}/${year}`
-=======
-
-  return `${formatted.getMonth()}/${formatted.getDay()}/${formatted.getFullYear()}`
->>>>>>> a076f22... add data persistence through local storage
 }
