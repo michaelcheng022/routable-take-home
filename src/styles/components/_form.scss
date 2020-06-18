@@ -1,0 +1,15 @@
+.form-container {
+  padding: 2px;
+}
+
+.form-container > form {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+
+.form-container > label {
+  font-weight: bold;
+}
+
+

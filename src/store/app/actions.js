@@ -47,10 +47,10 @@ export const getIssues = (url) => async dispatch => {
   }
 }
 
-export const getRepos = (url) => async dispatch => {
+export const getRepos = (url, token) => async dispatch => {
   dispatch(creators.fetchDataStart())
   try {
-    const repos = await fetchData(url)
+    const repos = await fetchData(url, token)
     dispatch(creators.recieveData(repos))
   } catch(err) {
     dispatch(creators.fetchDataError(err))
@@ -59,11 +59,12 @@ export const getRepos = (url) => async dispatch => {
 }
 
 // fetch data helper
-const fetchData = async (url) => {
+const fetchData = async (url, token) => {
   return await fetch(url, {
     method: "GET",
     headers: new Headers({
-      Accept: 'application/vnd.github.nebula-preview+json'
+      Accept: 'application/vnd.github.nebula-preview+json',
+      Authorization: `token ${token}`
     })
   })
     .then(response => response.json())

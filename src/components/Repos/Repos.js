@@ -5,30 +5,38 @@ import List from '../shared/List'
 import Header from '../shared/Header'
 import Icon from '../shared/Icon'
 import RepoCard from './RepoCard'
+import Form from '../Form/Form'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { getRepos, creators } from 'store/app/actions';
 import logo from 'assets/GitHub-Mark-Light-64px.png'
 
-const URL = `https://api.github.com/michaelcheng022/repos`
+const URL = `https://api.github.com/user/repos`
 // test with endpoint that has repos that contains issues
 const TEST_URL = 'https://api.github.com/repositories?since=364'
 
 const Repos = (props) => {
-  useEffect(() => {
+  const [token, setToken] = useState('')
+
+
+  const onSubmit = async (e) => {
+    e.preventDefault()
     async function fetchRepos(url = TEST_URL) {
-      await props.getRepos(url)
+      await props.getRepos(url, token)
     }
 
     if (!props.hits?.length) {
-      fetchRepos(TEST_URL, 'repos')
+      fetchRepos(URL, 'repos')
+
     }
-  },[])
+  }
+
   return (
     <div className="list-container">
       <Header icon={<Icon src={logo} alt="Octokat"/>}>
         {"Repositories"}
       </Header>
+      <Form getToken={setToken} onSubmit={onSubmit}/>
       <List
         active={props.active}
         fetchData={props.fetchData}
